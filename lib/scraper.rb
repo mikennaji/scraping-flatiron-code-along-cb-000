@@ -15,15 +15,15 @@ end
 
 
 def make_courses
-  counter= 0
+  
   self.get_courses.each do |post|
-    puts post.text
-    counter += 1
-    if counter % 12== 0
-      puts "BIGGERRRR"
-    end
-
-
+    course = Course.new
+    course.title = post.css('h2')
+    course.schedule = post.css('date')
+    course.description = post.css('p')
+  
+    
+    
   end
 end
 
